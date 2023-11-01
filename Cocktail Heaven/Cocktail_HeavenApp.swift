@@ -11,7 +11,7 @@ import SwiftUI
 struct Cocktail_HeavenApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
         }
     }
 }

@@ -7,16 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED378DD22AF2C17A00912AEA /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED378DD12AF2C17A00912AEA /* SearchView.swift */; };
+		ED378DD42AF2C1B100912AEA /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED378DD32AF2C1B100912AEA /* FavoritesView.swift */; };
+		ED378DD62AF2C1C300912AEA /* NewRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED378DD52AF2C1C300912AEA /* NewRecipeView.swift */; };
+		ED378DD82AF2D03D00912AEA /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED378DD72AF2D03D00912AEA /* Recipe.swift */; };
+		ED378DDA2AF2D3F700912AEA /* RecipeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED378DD92AF2D3F700912AEA /* RecipeListCell.swift */; };
 		ED64A6772AF03864002ABB90 /* Cocktail_HeavenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED64A6762AF03864002ABB90 /* Cocktail_HeavenApp.swift */; };
-		ED64A6792AF03864002ABB90 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED64A6782AF03864002ABB90 /* ContentView.swift */; };
+		ED64A6792AF03864002ABB90 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED64A6782AF03864002ABB90 /* MainTabView.swift */; };
 		ED64A67B2AF03865002ABB90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED64A67A2AF03865002ABB90 /* Assets.xcassets */; };
 		ED64A67E2AF03865002ABB90 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED64A67D2AF03865002ABB90 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED378DD12AF2C17A00912AEA /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		ED378DD32AF2C1B100912AEA /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		ED378DD52AF2C1C300912AEA /* NewRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecipeView.swift; sourceTree = "<group>"; };
+		ED378DD72AF2D03D00912AEA /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		ED378DD92AF2D3F700912AEA /* RecipeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListCell.swift; sourceTree = "<group>"; };
 		ED64A6732AF03864002ABB90 /* Cocktail Heaven.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cocktail Heaven.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED64A6762AF03864002ABB90 /* Cocktail_HeavenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cocktail_HeavenApp.swift; sourceTree = "<group>"; };
-		ED64A6782AF03864002ABB90 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		ED64A6782AF03864002ABB90 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		ED64A67A2AF03865002ABB90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED64A67D2AF03865002ABB90 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -32,6 +42,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED378DDB2AF2DE8700912AEA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED378DD72AF2D03D00912AEA /* Recipe.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ED378DDC2AF2DE9100912AEA /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				ED64A6782AF03864002ABB90 /* MainTabView.swift */,
+				ED378DD12AF2C17A00912AEA /* SearchView.swift */,
+				ED378DD32AF2C1B100912AEA /* FavoritesView.swift */,
+				ED378DD52AF2C1C300912AEA /* NewRecipeView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		ED378DDD2AF2DEB100912AEA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ED378DDE2AF2DEB800912AEA /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ED378DDE2AF2DEB800912AEA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				ED378DD92AF2D3F700912AEA /* RecipeListCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		ED64A66A2AF03864002ABB90 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +96,10 @@
 		ED64A6752AF03864002ABB90 /* Cocktail Heaven */ = {
 			isa = PBXGroup;
 			children = (
+				ED378DDD2AF2DEB100912AEA /* Views */,
+				ED378DDB2AF2DE8700912AEA /* Model */,
+				ED378DDC2AF2DE9100912AEA /* Screens */,
 				ED64A6762AF03864002ABB90 /* Cocktail_HeavenApp.swift */,
-				ED64A6782AF03864002ABB90 /* ContentView.swift */,
 				ED64A67A2AF03865002ABB90 /* Assets.xcassets */,
 				ED64A67C2AF03865002ABB90 /* Preview Content */,
 			);
@@ -137,7 +184,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED64A6792AF03864002ABB90 /* ContentView.swift in Sources */,
+				ED378DD42AF2C1B100912AEA /* FavoritesView.swift in Sources */,
+				ED378DD62AF2C1C300912AEA /* NewRecipeView.swift in Sources */,
+				ED64A6792AF03864002ABB90 /* MainTabView.swift in Sources */,
+				ED378DDA2AF2D3F700912AEA /* RecipeListCell.swift in Sources */,
+				ED378DD82AF2D03D00912AEA /* Recipe.swift in Sources */,
+				ED378DD22AF2C17A00912AEA /* SearchView.swift in Sources */,
 				ED64A6772AF03864002ABB90 /* Cocktail_HeavenApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
