@@ -33,7 +33,7 @@ struct SearchView: View {
 //                }
                 ScrollView {
                     ForEach(MockData.recipes) { recipe in
-                        RecipeListCell(recipe: recipe)
+                        RecipeCell(recipe: recipe)
                     }
                 }
             }

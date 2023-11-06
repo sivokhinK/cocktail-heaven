@@ -7,29 +7,29 @@
 
 import SwiftUI
 
-struct RecipeListCell: View {
+struct RecipeCell: View {
     
     let recipe: Recipe
     
     var body: some View {
-        HStack() {
+        HStack {
             Image(.longIslandTea)
                 .resizable()
                 .frame(width: 75, height: 75)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .padding(.leading, 5)
             
-            VStack {
+            VStack(alignment: .leading, spacing: 7) {
                 Text(recipe.name).font(.headline)
                 
                 // TODO: add tags
-                HStack() {
-                    Text("TAG")
-                        .font(.subheadline)
-                        .padding(EdgeInsets(top: 2, leading: 3, bottom: 2, trailing: 3))
-                        .background {
-                            RoundedRectangle(cornerRadius: 5).fill(Color.tagCell)
-                        }
+                HStack(spacing: 6) {
+                    ForEach(0..<3) { _ in
+                        Text("TAG")
+                            .font(.caption)
+                            .padding(EdgeInsets(top: 2, leading: 3, bottom: 2, trailing: 3))
+                            .background(RoundedRectangle(cornerRadius: 5).fill(Color.tagCell))
+                    }
                 }
                 
                 Spacer()
@@ -38,6 +38,13 @@ struct RecipeListCell: View {
             .padding(.leading, 5)
             
             Spacer()
+            
+            VStack {
+                Image(systemName: "heart")
+                    .padding(.top, 7)
+                    .padding(.trailing, 7)
+                Spacer()
+            }
         }
         .frame(width: 312, height: 85)
         .background {
@@ -49,5 +56,5 @@ struct RecipeListCell: View {
 }
 
 #Preview {
-    RecipeListCell(recipe: MockData.sampleRecipe)
+    RecipeCell(recipe: MockData.sampleRecipe)
 }
