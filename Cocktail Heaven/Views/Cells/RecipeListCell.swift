@@ -16,19 +16,34 @@ struct RecipeListCell: View {
             Image(.longIslandTea)
                 .resizable()
                 .frame(width: 75, height: 75)
-                .aspectRatio(contentMode: .fit)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
+                .padding(.leading, 5)
+            
+            VStack {
+                Text(recipe.name).font(.headline)
+                
+                // TODO: add tags
+                HStack() {
+                    Text("TAG")
+                        .font(.subheadline)
+                        .padding(EdgeInsets(top: 2, leading: 3, bottom: 2, trailing: 3))
+                        .background {
+                            RoundedRectangle(cornerRadius: 5).fill(Color.tagCell)
+                        }
+                }
+                
+                Spacer()
+            }
+            .padding(.top, 10)
+            .padding(.leading, 5)
             
             Spacer()
         }
+        .frame(width: 312, height: 85)
         .background {
             RoundedRectangle(cornerRadius: 10)
-                .frame(width: 312, height: 85)
-                .foregroundStyle(.recipeListCell)
-                .shadow(color: Color(.sRGBLinear, white: 0, opacity: 0.25),
-                        radius: CGFloat(4),
-                        x: CGFloat(0), y: CGFloat(4))
-
+                .fill(Color.recipeCell)
+                .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4)
         }
     }
 }
