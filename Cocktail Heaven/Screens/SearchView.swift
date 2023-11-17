@@ -27,29 +27,60 @@ struct SearchView: View {
                 .fontWeight(.semibold)
             
             HStack {
-                Button() {
-                    if !buttonTapped { buttonTapped.toggle() }
-                } label: {
-                    Text("Drink")
-                        .font(.system(size: 20, weight: .regular))
+                if buttonTapped {
+                    Button() {
+                        if !buttonTapped { buttonTapped.toggle() }
+                    } label: {
+                        Text("Drink")
+                            .font(.system(size: 20, weight: .regular))
+                    }
+                    .frame(width: 147, height: 37)
+                    .background {
+                        RoundedRectangle(cornerRadius: 5)
+                            .fill(.activeButton)
+                            .shadow(color: .black.opacity(0.25), radius: 4, x: 4, y: 4)
+                    }
                 }
-                .frame(width: 147, height: 37)
-                .background {
-                    RoundedRectangle(cornerRadius: 5)
-                        .fill(buttonTapped ? .activeButton : .inactiveButton)
-                        .shadow(color: .black.opacity(0.25), radius: 4, x: 4, y: 4)
+                else {
+                    Button() {
+                        if !buttonTapped { buttonTapped.toggle() }
+                    } label: {
+                        Text("Drink")
+                            .font(.system(size: 20, weight: .regular))
+                    }
+                    .frame(width: 147, height: 37)
+                    .background {
+                        RoundedRectangle(cornerRadius: 5)
+                            .fill(.inactiveButton)
+                    }
                 }
-                
-                Button {
-                    if buttonTapped { buttonTapped.toggle() }
-                } label: {
-                    Text("Ingredient")
-                        .font(.system(size: 20, weight: .regular))
+
+                if buttonTapped {
+                    Button {
+                        if buttonTapped { buttonTapped.toggle() }
+                    } label: {
+                        Text("Ingredient")
+                            .font(.system(size: 20, weight: .regular))
+                    }
+                    .frame(width: 147, height: 37)
+                    .background(
+                        RoundedRectangle(cornerRadius: 5)
+                            .fill(.inactiveButton))
                 }
-                .frame(width: 147, height: 37)
-                .background(
-                    RoundedRectangle(cornerRadius: 5)
-                        .fill(buttonTapped ? .inactiveButton : .activeButton))
+                else {
+                    Button {
+                        if buttonTapped { buttonTapped.toggle() }
+                    } label: {
+                        Text("Ingredient")
+                            .font(.system(size: 20, weight: .regular))
+                    }
+                    .frame(width: 147, height: 37)
+                    .background(
+                        RoundedRectangle(cornerRadius: 5)
+                            .fill(.activeButton))
+                    .shadow(color: .black.opacity(0.25), radius: 4, x: 4, y: 4)
+                }
+
             }
             
             HStack {
