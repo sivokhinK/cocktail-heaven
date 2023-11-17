@@ -28,7 +28,7 @@ struct RecipeCell: View {
                         Text("TAG")
                             .font(.caption)
                             .padding(EdgeInsets(top: 2, leading: 3, bottom: 2, trailing: 3))
-                            .background(RoundedRectangle(cornerRadius: 5).fill(Color.tagCell))
+                            .background(RoundedRectangle(cornerRadius: 5).fill(.tagCell))
                     }
                 }
                 
@@ -49,7 +49,7 @@ struct RecipeCell: View {
         .frame(width: 312, height: 85)
         .background {
             RoundedRectangle(cornerRadius: 10)
-                .fill(Color.recipeCell)
+                .fill(.recipeCell)
                 .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4)
         }
     }
