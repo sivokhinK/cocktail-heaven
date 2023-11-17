@@ -92,12 +92,7 @@ struct SearchView: View {
                 .focused($searchFieldIsFocused)
                 .onSubmit { searchFieldIsFocused = false; }
             }
-            .frame(width: 312, height: 50)
-            .background {
-                RoundedRectangle(cornerRadius: 5)
-                    .fill(.inactiveButton)
-                    .stroke(searchFieldIsFocused ? .searchFieldActiveStroke : .searchFieldStroke, lineWidth: 2)
-            }
+            .standardTextFieldModifier(isFocused: searchFieldIsFocused)
             .padding(.top, 15)
             .padding(.bottom, 12)
             
