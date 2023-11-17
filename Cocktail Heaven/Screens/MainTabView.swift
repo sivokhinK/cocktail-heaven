@@ -17,7 +17,7 @@ struct MainTabView: View {
                 .tabItem { Label("", systemImage: "person") }
             
             NewRecipeView()
-                .tabItem { Label("", systemImage: "bag") }
+                .tabItem { Label("", systemImage: "plus") }
         }
     }
 }
