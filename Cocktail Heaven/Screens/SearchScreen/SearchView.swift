@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SearchView: View {
     
+    @StateObject var viewModel = SearchViewModel()
+    
     @State private var searchField = "";
     @FocusState private var searchFieldIsFocused: Bool;
     @State private var buttonTapped = true;
@@ -97,12 +99,19 @@ struct SearchView: View {
             .padding(.bottom, 12)
             
             ScrollView {
-                ForEach(MockData.recipes) { recipe in
+                ForEach(viewModel.recipes) { recipe in
                     RecipeCell(recipe: recipe)
                         .padding(EdgeInsets(top: 0, leading: 5, bottom: 11, trailing: 5))
                 }
             }
             .scrollIndicators(.hidden)
+            .task {
+                do {
+                    try await viewModel.fetchAllRecipes()
+                } catch {
+                    print("DEBUG: Error \(error.localizedDescription)")
+                }
+            }
         }
     }
 }
