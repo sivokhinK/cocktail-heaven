@@ -91,7 +91,18 @@ struct SearchView: View {
                     Text("Type your drink")
                 }
                 .focused($searchFieldIsFocused)
-                .onSubmit { searchFieldIsFocused = false; }
+                .autocorrectionDisabled()
+                .onSubmit {
+                    searchFieldIsFocused = false;
+                    
+                    if buttonTapped {
+                        Task {
+                            await viewModel.fetchRecipeByName(string: searchField)
+                        }
+                    } else {
+                        // TODO: search by ingredient
+                    }
+                }
             }
             .standardTextFieldModifier(isFocused: searchFieldIsFocused)
             .padding(.top, 15)
