@@ -8,13 +8,30 @@
 import SwiftUI
 
 struct MainTabView: View {
+    
+    @State private var selection = 1
+    
     var body: some View {
-        TabView {
+        TabView(selection: $selection) {
             SearchView()
-                .tabItem { Label("", systemImage: "house") }
+                .tabItem {
+                    if selection == 1 {
+                        Image(systemName: "house")
+                    } else {
+                        Image(systemName: "house").environment(\.symbolVariants, .none)
+                    }
+                }
+                .tag(1)
             
             FavoritesView()
-                .tabItem { Label("", systemImage: "person") }
+                .tabItem {
+                    if selection == 2 {
+                        Image(systemName: "heart")
+                    } else {
+                        Image(systemName: "heart").environment(\.symbolVariants, .none)
+                    }
+                }
+                .tag(2)
             
             NewRecipeView()
                 .tabItem { Label("", systemImage: "plus") }
