@@ -14,6 +14,7 @@ struct SearchView: View {
     @State private var searchField = "";
     @FocusState private var searchFieldIsFocused: Bool;
     @State private var buttonTapped = true;
+    @State private var firstLaunch = true;
     
     var body: some View {
         VStack {
@@ -118,7 +119,10 @@ struct SearchView: View {
             }
             .scrollIndicators(.hidden)
             .task {
-                await viewModel.fetchAllRecipes()
+                if firstLaunch {
+                    await viewModel.fetchAllRecipes()
+                    firstLaunch = false
+                }
             }
         }
     }
