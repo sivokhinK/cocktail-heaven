@@ -100,7 +100,9 @@ struct SearchView: View {
                             await viewModel.fetchRecipeByName(string: searchField)
                         }
                     } else {
-                        // TODO: search by ingredient
+                        Task {
+                            await viewModel.fetchRecipesByIngredient(string: searchField)
+                        }
                     }
                 }
             }

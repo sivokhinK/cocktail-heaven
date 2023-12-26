@@ -26,4 +26,11 @@ class SearchViewModel: ObservableObject {
             self.recipes = recipes
         }
     }
+    
+    func fetchRecipesByIngredient(string: String) async {
+        let recipes = await service.fetchRecipeByIngredient(string: string)
+        await MainActor.run {
+            self.recipes = recipes
+        }
+    }
 }
