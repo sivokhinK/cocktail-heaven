@@ -7,19 +7,21 @@
 
 import Foundation
 
+struct Drinks: Codable {
+    let drinks: [Recipe]
+}
+
 struct Recipe: Codable, Identifiable {
     let id: String
     let name: String
     let instructions: String
     let imageURL: String
-//    let tags: [String]
     
     enum CodingKeys: String, CodingKey {
         case id = "idDrink"
         case name = "strDrink"
         case instructions = "strInstructions"
         case imageURL = "strDrinkThumb"
-//        case tags
     }
 }
 

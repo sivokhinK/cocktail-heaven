@@ -82,7 +82,6 @@ struct SearchView: View {
                             .fill(.activeButton))
                     .shadow(color: .black.opacity(0.25), radius: 4, x: 4, y: 4)
                 }
-
             }
             
             HStack {
@@ -106,11 +105,7 @@ struct SearchView: View {
             }
             .scrollIndicators(.hidden)
             .task {
-                do {
-                    try await viewModel.fetchAllRecipes()
-                } catch {
-                    print("DEBUG: Error \(error.localizedDescription)")
-                }
+                await viewModel.fetchAllRecipes()
             }
         }
     }

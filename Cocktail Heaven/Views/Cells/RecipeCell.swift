@@ -13,11 +13,20 @@ struct RecipeCell: View {
     
     var body: some View {
         HStack {
-            Image(.longIslandTea)
-                .resizable()
-                .frame(width: 75, height: 75)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-                .padding(.leading, 5)
+//            Image(.longIslandTea)
+            AsyncImage(url: URL(string: recipe.imageURL)) { image in
+                image
+                    .resizable()
+                    .frame(width: 75, height: 75)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .padding(.leading, 5)
+            } placeholder: {
+                Image(systemName: "photo")
+                    .resizable()
+                    .frame(width: 75, height: 75)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .padding(.leading, 5)
+            }
             
             VStack(alignment: .leading, spacing: 7) {
                 Text(recipe.name).font(.headline)

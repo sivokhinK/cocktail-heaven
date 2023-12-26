@@ -7,15 +7,11 @@
 
 import Foundation
 
-class Drinks: Codable {
-    let drinks: [Recipe]
-}
-
 class RecipeDataService {
     
-    private var allRecipesURLString = "https://thecocktaildb.com/api/json/v1/1/search.php?f=b"
+    private let allRecipesURLString = "https://thecocktaildb.com/api/json/v1/1/search.php?f=b"
     
-    func fetchAllRecipes() async throws -> [Recipe] {
+    func fetchAllRecipes() async -> [Recipe] {
         guard let url = URL(string: allRecipesURLString) else { return [] }
         
         do {

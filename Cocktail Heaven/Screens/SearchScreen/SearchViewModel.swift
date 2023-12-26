@@ -13,7 +13,10 @@ class SearchViewModel: ObservableObject {
     
     private let service = RecipeDataService()
     
-    func fetchAllRecipes() async throws {
-        self.recipes = try await service.fetchAllRecipes()
+    func fetchAllRecipes() async {
+        let recipes = await service.fetchAllRecipes()
+        await MainActor.run {
+            self.recipes = recipes
+        }
     }
 }
