@@ -35,11 +35,6 @@ struct RecipeDetailsView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .padding(10)
                     }
-//                    Image(.longIslandTea)
-//                        .resizable()
-//                        .frame(width: 170, height: 170)
-//                        .clipShape(RoundedRectangle(cornerRadius: 10))
-//                        .padding(10)
                     
                     VStack(alignment: .leading, spacing: 5) {
                         Text(recipe.name)
@@ -74,7 +69,7 @@ struct RecipeDetailsView: View {
                             VStack {
                                 Text(recipe.ingredients[i])
                                 
-                                let url = baseIngredientURLString1 + recipe.ingredients[i].lowercased() + baseIngredientURLString2
+                                let url = baseIngredientURLString1 + recipe.ingredients[i] + baseIngredientURLString2
                                 AsyncImage(url: URL(string: url)) { image in
                                     image
                                         .resizable()
@@ -85,7 +80,10 @@ struct RecipeDetailsView: View {
                                         .frame(width: 160, height: 160)
                                 }
                                 
-                                Text(recipe.measures[i])
+                                // There can by less measures then ingredients.
+                                if recipe.measures.count - 1 >= i {
+                                    Text(recipe.measures[i])
+                                }
                             }
                             .padding(.bottom, 25)
                         }
