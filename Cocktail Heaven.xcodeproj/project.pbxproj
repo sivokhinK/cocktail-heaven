@@ -19,6 +19,7 @@
 		ED64A67E2AF03865002ABB90 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED64A67D2AF03865002ABB90 /* Preview Assets.xcassets */; };
 		ED6DAE192B12284200873AFF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6DAE182B12284200873AFF /* SearchViewModel.swift */; };
 		ED6DAE1C2B1228F400873AFF /* RecipeDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6DAE1B2B1228F400873AFF /* RecipeDataService.swift */; };
+		EDF522B22B3C1B27009C06E4 /* RecipeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF522B12B3C1B27009C06E4 /* RecipeDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		ED64A67D2AF03865002ABB90 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ED6DAE182B12284200873AFF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		ED6DAE1B2B1228F400873AFF /* RecipeDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDataService.swift; sourceTree = "<group>"; };
+		EDF522B12B3C1B27009C06E4 /* RecipeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			children = (
 				ED378DDE2AF2DEB800912AEA /* Cells */,
 				ED49CA982B079CE300D8D3B0 /* CustomModifiers.swift */,
+				EDF522B12B3C1B27009C06E4 /* RecipeDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				ED6DAE192B12284200873AFF /* SearchViewModel.swift in Sources */,
 				ED6DAE1C2B1228F400873AFF /* RecipeDataService.swift in Sources */,
 				ED378DD22AF2C17A00912AEA /* SearchView.swift in Sources */,
+				EDF522B22B3C1B27009C06E4 /* RecipeDetailsView.swift in Sources */,
 				ED64A6772AF03864002ABB90 /* Cocktail_HeavenApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

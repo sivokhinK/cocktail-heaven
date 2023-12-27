@@ -34,11 +34,7 @@ struct MainTabView: View {
                 .tag(2)
             
             NewRecipeView()
-                .tabItem {
-//                    if selection == 3 {
-                        Label("", systemImage: "plus")
-//                    }
-                }
+                .tabItem { Label("", systemImage: "plus") }
                 .tag(3)
         }
     }
