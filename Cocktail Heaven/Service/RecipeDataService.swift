@@ -13,7 +13,7 @@ class RecipeDataService {
     private let recipesByNameURLString       = "https://thecocktaildb.com/api/json/v1/1/search.php?s="
     private let recipesByIngredientURLString = "https://thecocktaildb.com/api/json/v1/1/filter.php?i="
     
-    // Note
+    // NOTE
     // All these functions are basically the same.
     // Maybe make one with different parameters?
     
@@ -25,7 +25,7 @@ class RecipeDataService {
             let drinks = try JSONDecoder().decode(Drinks.self, from: data)
             return drinks.drinks
         } catch {
-            print("Error \(error)")
+            print("ERROR \(error)")
             return []
         }
     }
@@ -38,7 +38,7 @@ class RecipeDataService {
             let drinks = try JSONDecoder().decode(Drinks.self, from: data)
             return drinks.drinks
         } catch {
-            print("Error \(error)")
+            print("ERROR \(error)")
             return []
         }
     }
@@ -51,7 +51,7 @@ class RecipeDataService {
             let drinks = try JSONDecoder().decode(Drinks.self, from: data)
             return drinks.drinks
         } catch {
-            print("Error \(error)")
+            print("ERROR \(error)")
             return []
         }
     }
