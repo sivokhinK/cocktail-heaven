@@ -11,10 +11,12 @@ struct SearchView: View {
     
     @StateObject var viewModel = SearchViewModel()
     
-    @State private var searchField = "";
-    @FocusState private var searchFieldIsFocused: Bool;
-    @State private var buttonTapped = true;
-    @State private var firstLaunch = true;
+    @State private var searchField = ""
+    @FocusState private var searchFieldIsFocused: Bool
+    @State private var buttonTapped = true
+    @State private var firstLaunch = true
+    
+    @State private var selectedRecipe: RecipeDetailed?
     
     var body: some View {
         VStack {
@@ -29,6 +31,7 @@ struct SearchView: View {
                 .font(.title2)
                 .fontWeight(.semibold)
             
+            // NOTE: Maybe refactor?
             HStack {
                 if buttonTapped {
                     Button() {
@@ -111,10 +114,19 @@ struct SearchView: View {
             .padding(.top, 15)
             .padding(.bottom, 12)
             
+            // NOTE: Shouldn't images load from top to bottom?
             ScrollView {
                 ForEach(viewModel.recipes) { recipe in
                     RecipeCell(recipe: recipe)
                         .padding(EdgeInsets(top: 0, leading: 5, bottom: 11, trailing: 5))
+                        .onTapGesture {
+                            Task {
+                                await viewModel.fetchRecipeByID(string: recipe.id)
+                                await MainActor.run {
+                                    self.selectedRecipe = viewModel.recipeDetailed
+                                }
+                            }
+                        }
                 }
             }
             .scrollIndicators(.hidden)
@@ -124,6 +136,9 @@ struct SearchView: View {
                     firstLaunch = false
                 }
             }
+        }
+        .sheet(item: $selectedRecipe) { item in
+            RecipeDetailsView(recipe: RecipeDetailedFixed(recipe: item))
         }
     }
 }

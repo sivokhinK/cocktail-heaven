@@ -10,6 +10,7 @@ import Foundation
 class SearchViewModel: ObservableObject {
     
     @Published var recipes = [Recipe]()
+    @Published var recipeDetailed: RecipeDetailed?
     
     private let service = RecipeDataService()
     
@@ -31,6 +32,13 @@ class SearchViewModel: ObservableObject {
         let recipes = await service.fetchRecipeByIngredient(string: string)
         await MainActor.run {
             self.recipes = recipes
+        }
+    }
+    
+    func fetchRecipeByID(string: String) async {
+        let recipe = await service.fetchRecipeByID(id: string)
+        await MainActor.run {
+            self.recipeDetailed = recipe
         }
     }
 }

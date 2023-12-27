@@ -12,6 +12,7 @@ class RecipeDataService {
     private let allRecipesURLString          = "https://thecocktaildb.com/api/json/v1/1/search.php?f=a"
     private let recipesByNameURLString       = "https://thecocktaildb.com/api/json/v1/1/search.php?s="
     private let recipesByIngredientURLString = "https://thecocktaildb.com/api/json/v1/1/filter.php?i="
+    private let recipeByIDURLString          = "https://thecocktaildb.com/api/json/v1/1/lookup.php?i="
     
     // NOTE
     // All these functions are basically the same.
@@ -53,6 +54,19 @@ class RecipeDataService {
         } catch {
             print("ERROR \(error)")
             return []
+        }
+    }
+    
+    func fetchRecipeByID(id: String) async -> RecipeDetailed? {
+        guard let url = URL(string: recipeByIDURLString + id.lowercased()) else { return nil }
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let drinks = try JSONDecoder().decode(DrinksDetailed.self, from: data)
+            return drinks.drinks[0]
+        } catch {
+            print("ERROR \(error)")
+            return nil
         }
     }
 }

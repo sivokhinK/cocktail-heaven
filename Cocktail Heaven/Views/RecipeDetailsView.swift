@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecipeDetailsView: View {
     
-    let recipe: DetailedRecipeFixed
+    let recipe: RecipeDetailedFixed
     
     private let baseIngredientURLString1 = "https://thecocktaildb.com/images/ingredients/"
     private let baseIngredientURLString2 = "-Medium.png"
@@ -21,11 +21,25 @@ struct RecipeDetailsView: View {
         ScrollView {
             VStack {
                 HStack {
-                    Image(.longIslandTea)
-                        .resizable()
-                        .frame(width: 170, height: 170)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .padding(10)
+                    // TODO: Pass image to this view from its parrent.
+                    AsyncImage(url: URL(string: recipe.imageURL)) { image in
+                        image
+                            .resizable()
+                            .frame(width: 170, height: 170)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .padding(10)
+                    } placeholder: {
+                        Image(systemName: "photo")
+                            .resizable()
+                            .frame(width: 170, height: 170)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .padding(10)
+                    }
+//                    Image(.longIslandTea)
+//                        .resizable()
+//                        .frame(width: 170, height: 170)
+//                        .clipShape(RoundedRectangle(cornerRadius: 10))
+//                        .padding(10)
                     
                     VStack(alignment: .leading, spacing: 5) {
                         Text(recipe.name)
@@ -88,5 +102,5 @@ struct RecipeDetailsView: View {
 }
 
 #Preview {
-    RecipeDetailsView(recipe: DetailedRecipeFixed(recipe: MockData.sampleDetailedRecipe))
+    RecipeDetailsView(recipe: RecipeDetailedFixed(recipe: MockData.sampleRecipeDetailed))
 }
