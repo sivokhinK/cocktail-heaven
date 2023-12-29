@@ -8,14 +8,10 @@
 import SwiftUI
 
 struct FavoritesView: View {
+    
     var body: some View {
-        
         VStack {
-            Text("Favorites")
-                .font(.title)
-                .fontWeight(.semibold)
-                .padding(.top, 25)
-                .padding(.bottom, 40)
+            MainTitleCH(title: "Favorites")
             
             ScrollView {
                 ForEach(MockData.recipes) { recipe in

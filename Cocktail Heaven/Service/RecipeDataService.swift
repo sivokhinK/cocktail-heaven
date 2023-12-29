@@ -14,7 +14,7 @@ class RecipeDataService {
     private let recipesByIngredientURLString = "https://thecocktaildb.com/api/json/v1/1/filter.php?i="
     private let recipeByIDURLString          = "https://thecocktaildb.com/api/json/v1/1/lookup.php?i="
     
-    // NOTE
+    // TODO:
     // All these functions are basically the same.
     // Maybe make one with different parameters?
     

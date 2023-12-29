@@ -12,8 +12,13 @@ class SearchViewModel: ObservableObject {
     @Published var recipes = [Recipe]()
     @Published var recipeDetailed: RecipeDetailed?
     
+    @Published var searchField = ""
+    @Published var buttonTapped = true
+    @Published var firstLaunch = true
+    
     private let service = RecipeDataService()
     
+    // TODO: rewrite to fetchRecipesStartingWith(letter: string)
     func fetchAllRecipes() async {
         let recipes = await service.fetchAllRecipes()
         await MainActor.run {
