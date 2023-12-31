@@ -10,7 +10,7 @@ import Foundation
 class SearchViewModel: ObservableObject {
     
     @Published var recipes = [Recipe]()
-    @Published var recipeDetailed: RecipeDetailed?
+    @Published var recipeDetailed: RecipeDetailedJSON?
     
     @Published var searchField = ""
     @Published var buttonTapped = true

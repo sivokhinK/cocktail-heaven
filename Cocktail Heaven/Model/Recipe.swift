@@ -12,7 +12,7 @@ struct Drinks: Codable {
 }
 
 struct DrinksDetailed: Codable {
-    let drinks: [RecipeDetailed]
+    let drinks: [RecipeDetailedJSON]
 }
 
 struct Recipe: Codable, Identifiable {
@@ -27,7 +27,7 @@ struct Recipe: Codable, Identifiable {
     }
 }
 
-struct RecipeDetailed: Codable, Identifiable {
+struct RecipeDetailedJSON: Codable, Identifiable {
     let id: String
     let name: String
     let instructions: String
@@ -103,7 +103,7 @@ struct RecipeDetailed: Codable, Identifiable {
     }
 }
 
-struct RecipeDetailedFixed: Identifiable {
+struct RecipeDetailed: Identifiable {
     let id: String
     let name: String
     let instructions: String
@@ -111,7 +111,7 @@ struct RecipeDetailedFixed: Identifiable {
     let ingredients: [String]
     let measures: [String]
     
-    init(recipe: RecipeDetailed) {
+    init(recipe: RecipeDetailedJSON) {
         self.id = recipe.id
         self.name = recipe.name
         self.instructions = recipe.instructions
@@ -160,7 +160,7 @@ struct MockData {
 //        tags: ["IBA", "CONTEMPORARYCLASSIC", "ALCOHOLIC", "USA", "ASIA", "VEGAN"]
     )
     
-    static let sampleRecipeDetailed = RecipeDetailed(
+    static let sampleRecipeDetailed = RecipeDetailedJSON(
         id: "11002",
         name: "Long Island Tea",
         instructions: "Combine all ingredients (except cola) and pour over ice in a highball glass. Add the splash of cola for color. Decorate with a slice of lemon and serve.", 

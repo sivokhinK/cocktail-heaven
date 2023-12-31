@@ -57,7 +57,7 @@ class RecipeDataService {
         }
     }
     
-    func fetchRecipeByID(id: String) async -> RecipeDetailed? {
+    func fetchRecipeByID(id: String) async -> RecipeDetailedJSON? {
         guard let url = URL(string: recipeByIDURLString + id.lowercased()) else { return nil }
         
         do {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecipeDetailsView: View {
     
-    let recipe: RecipeDetailedFixed
+    let recipe: RecipeDetailed
     
     private let baseIngredientURLString1 = "https://thecocktaildb.com/images/ingredients/"
     private let baseIngredientURLString2 = "-Medium.png"
@@ -100,5 +100,5 @@ struct RecipeDetailsView: View {
 }
 
 #Preview {
-    RecipeDetailsView(recipe: RecipeDetailedFixed(recipe: MockData.sampleRecipeDetailed))
+    RecipeDetailsView(recipe: RecipeDetailed(recipe: MockData.sampleRecipeDetailed))
 }
