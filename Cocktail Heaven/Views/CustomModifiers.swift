@@ -26,3 +26,13 @@ extension View {
         self.modifier(StandardTextFieldModifier(isFocused: isFocused))
     }
 }
+
+extension Image {
+    func standardRecipeDetailImageModifier() -> some View {
+        self
+            .resizable()
+            .frame(width: 170, height: 170)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .padding(10)
+    }
+}

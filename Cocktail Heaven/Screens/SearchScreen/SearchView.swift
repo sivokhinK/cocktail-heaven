@@ -76,7 +76,7 @@ struct SearchView: View {
             }
         }
         .sheet(item: $viewModel.recipeDetailed) { item in
-            RecipeDetailsView(recipe: RecipeDetailed(recipe: item))
+            RecipeDetailView(recipe: RecipeDetailed(recipe: item))
         }
     }
 }

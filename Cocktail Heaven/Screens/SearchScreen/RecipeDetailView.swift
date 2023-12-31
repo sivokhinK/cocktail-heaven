@@ -1,5 +1,5 @@
 //
-//  RecipeDetailsView.swift
+//  RecipeDetailView.swift
 //  Cocktail Heaven
 //
 //  Created by Kirill Sivokhin on 27.12.2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RecipeDetailsView: View {
+struct RecipeDetailView: View {
     
     let recipe: RecipeDetailed
     
@@ -24,16 +24,10 @@ struct RecipeDetailsView: View {
                     // TODO: Pass image to this view from its parrent.
                     AsyncImage(url: URL(string: recipe.imageURL)) { image in
                         image
-                            .resizable()
-                            .frame(width: 170, height: 170)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .padding(10)
+                            .standardRecipeDetailImageModifier()
                     } placeholder: {
                         Image(systemName: "photo")
-                            .resizable()
-                            .frame(width: 170, height: 170)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .padding(10)
+                            .standardRecipeDetailImageModifier()
                     }
                     
                     VStack(alignment: .leading, spacing: 5) {
@@ -96,9 +90,10 @@ struct RecipeDetailsView: View {
                 Spacer()
             }
         }
+        .scrollIndicators(.hidden)
     }
 }
 
 #Preview {
-    RecipeDetailsView(recipe: RecipeDetailed(recipe: MockData.sampleRecipeDetailed))
+    RecipeDetailView(recipe: RecipeDetailed(recipe: MockData.sampleRecipeDetailed))
 }
