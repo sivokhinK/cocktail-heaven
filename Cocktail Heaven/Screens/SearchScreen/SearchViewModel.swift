@@ -7,14 +7,15 @@
 
 import Foundation
 
-class SearchViewModel: ObservableObject {
+@Observable
+class SearchViewModel {
     
-    @Published var recipes = [Recipe]()
-    @Published var recipeDetailed: RecipeDetailedJSON?
+    var recipes = [Recipe]()
+    var recipeDetailed: RecipeDetailedJSON?
     
-    @Published var searchField = ""
-    @Published var buttonTapped = true
-    @Published var firstLaunch = true
+    var searchField = ""
+    var buttonTapped = true
+    var firstLaunch = true
     
     private let service = RecipeDataService()
     

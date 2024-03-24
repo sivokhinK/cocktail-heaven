@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
     
-    @StateObject var viewModel = SearchViewModel()
+    @State var viewModel = SearchViewModel()
     
     @FocusState private var searchFieldIsFocused: Bool
     
