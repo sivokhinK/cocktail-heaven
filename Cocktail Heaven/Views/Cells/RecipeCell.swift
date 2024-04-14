@@ -65,5 +65,5 @@ struct RecipeCell: View {
 }
 
 #Preview {
-    RecipeCell(recipe: MockData.sampleRecipe)
+    RecipeCell(recipe: RecipeMockData.sampleRecipe)
 }

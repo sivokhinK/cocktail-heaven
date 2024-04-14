@@ -14,7 +14,7 @@ struct FavoritesView: View {
             MainTitleCH(title: "Favorites")
             
             ScrollView {
-                ForEach(MockData.recipes) { recipe in
+                ForEach(RecipeMockData.recipes) { recipe in
                     RecipeCell(recipe: recipe)
                         .padding(EdgeInsets(top: 0, leading: 5, bottom: 11, trailing: 5))
                 }

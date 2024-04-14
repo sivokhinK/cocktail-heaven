@@ -151,7 +151,7 @@ struct RecipeDetailed: Identifiable {
     }
 }
 
-struct MockData {
+struct RecipeMockData {
     
     static let sampleRecipe = Recipe(
         id: "0001",

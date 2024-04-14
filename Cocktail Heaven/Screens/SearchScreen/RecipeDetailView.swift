@@ -95,5 +95,5 @@ struct RecipeDetailView: View {
 }
 
 #Preview {
-    RecipeDetailView(recipe: RecipeDetailed(recipe: MockData.sampleRecipeDetailed))
+    RecipeDetailView(recipe: RecipeDetailed(recipe: RecipeMockData.sampleRecipeDetailed))
 }
