@@ -13,5 +13,6 @@ struct Cocktail_HeavenApp: App {
         WindowGroup {
             MainTabView()
         }
+        .modelContainer(for: UserRecipe.self)
     }
 }
