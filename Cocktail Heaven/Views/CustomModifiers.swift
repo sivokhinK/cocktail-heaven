@@ -36,3 +36,13 @@ extension Image {
             .padding(10)
     }
 }
+
+extension Color {
+    static func random() -> [Double] {
+        [
+            .random(in: 0...1),
+            .random(in: 0...1),
+            .random(in: 0...1)
+        ]
+    }
+}

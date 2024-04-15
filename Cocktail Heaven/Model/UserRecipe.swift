@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import SwiftUI
 
 @Model
 class UserRecipe: Identifiable {
@@ -14,12 +15,14 @@ class UserRecipe: Identifiable {
     let name: String
     let instructions: String
     let ingredients: [String]
+    let colorRGB: [Double]
     
     init(name: String, instructions: String, ingredients: [String]) {
         self.id = UUID()
         self.name = name
         self.instructions = instructions
         self.ingredients = ingredients
+        self.colorRGB = Color.random()
     }
 }
 

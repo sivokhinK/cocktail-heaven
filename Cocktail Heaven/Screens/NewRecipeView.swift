@@ -18,15 +18,23 @@ struct NewRecipeView: View {
             VStack {
                 MainTitleCH(title: "Add New Recipe")
                 
-                ScrollView {
+                List {
                     ForEach(userRecipes) { recipe in
-                        HStack {
-                            Text(recipe.name)
+                        UserRecipeCell(recipe: recipe)
+                            .listRowSeparator(.hidden)
+                            .listRowInsets(.init(top: 8,
+                                                 leading: 25,
+                                                 bottom: 8,
+                                                 trailing: 25))
+                    }
+                    .onDelete { indexSet in
+                        for index in indexSet {
+                            deleteRecipe(userRecipes[index])
                         }
                     }
                 }
+                .listStyle(.plain)
             }
-            .frame(maxWidth: .infinity)
 
             Button {
                 addRecipe()
@@ -40,12 +48,17 @@ struct NewRecipeView: View {
                     .shadow(radius: 4, x: 0, y: 4)
             }
             .padding()
+            // TODO: Sheet with recipe details
         }
     }
     
     func addRecipe() {
         let recipe = UserRecipe(name: "Vodka Tonic", instructions: "Instruction", ingredients: ["vodka", "tonic"])
         context.insert(recipe)
+    }
+    
+    func deleteRecipe(_ recipe: UserRecipe) {
+        context.delete(recipe)
     }
 }
 
