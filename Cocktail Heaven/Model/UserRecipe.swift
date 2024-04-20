@@ -10,11 +10,11 @@ import SwiftData
 import SwiftUI
 
 @Model
-class UserRecipe: Identifiable {
+final class UserRecipe: Identifiable {
     let id: UUID
-    let name: String
-    let instructions: String
-    let ingredients: [String]
+    var name: String
+    var instructions: String
+    var ingredients: [String]
     let colorRGB: [Double]
     
     init(name: String, instructions: String, ingredients: [String]) {
